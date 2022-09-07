@@ -1,11 +1,16 @@
 from django.db import models
-from datetime import datetime
 
 # Create your models here.
 
 class Budget(models.Model):
+    type_choices = (
+        ('1m', '1 Month'),
+        ('3m', '3 Month'),
+        ('6m', '6 Month'),
+        ('1y', '1 Year')
+    )
     title = models.CharField(max_length=100, default='no title')
-    # date_created = models.DateField(("Date"), default=datetime.date)
+    date_length = models.CharField(max_length=2, choices=type_choices)
     budget_for = models.CharField(max_length=100, default='Misc.')
     income = models.IntegerField(default=0, blank=True, editable=True)
     total = models.IntegerField(blank=True, editable=True)
@@ -34,5 +39,5 @@ class Expenses(models.Model):
     type_bill = models.CharField(max_length=4, choices=type_choices)
     
     def __str__(self):
-       return f"{self.title} part of {self.budget} budget" 
+       return f"{self.title} part of {self.budget.title} budget" 
        
