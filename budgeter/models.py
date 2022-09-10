@@ -1,6 +1,7 @@
 from django.db import models
-
+from django.conf import settings
 # Create your models here.
+
 
 class Budget(models.Model):
     type_choices = (
@@ -14,7 +15,7 @@ class Budget(models.Model):
     budget_for = models.CharField(max_length=100, default='Misc.')
     income = models.IntegerField(default=0, blank=True, editable=True)
     total = models.IntegerField(blank=True, editable=True)
-    
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, on_delete=models.CASCADE, related_name='created_by')
     def __str__(self):
         return self.title
     
