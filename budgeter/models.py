@@ -15,7 +15,7 @@ class Budget(models.Model):
     budget_for = models.CharField(max_length=100, default='Misc.')
     income = models.IntegerField(default=0, blank=True, editable=True)
     total = models.IntegerField(blank=True, editable=True)
-    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, on_delete=models.CASCADE, related_name='created_by')
+    # created_by = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, on_delete=models.CASCADE, related_name='created_by')
     def __str__(self):
         return self.title
     
@@ -31,7 +31,7 @@ class Expenses(models.Model):
        ('Kids', 'Kids'),
        ('Pets', 'Pets') 
     )
-    budget = models.ForeignKey(Budget, on_delete=models.CASCADE, related_name='expenses')
+    budget = models.ForeignKey(Budget, on_delete=models.CASCADE, related_name='expenses', blank=True, null=True)
     title = models.CharField(max_length=100)
     # date_created = models.DateField(("Date"), default=datetime.date)
     biller = models.CharField(max_length=100)
