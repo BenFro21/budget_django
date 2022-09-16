@@ -141,5 +141,13 @@ REST_FRAMEWORK = {
     ],
 }
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:3000","http://127.0.0.1:3000"] # Use whichever port your React Frontend is running on
+CORS_ALLOWED_ORIGINS = ["http://localhost:3000","http://127.0.0.1:3000",] # Use whichever port your React Frontend is running on
 # This option will also need to be configured to include your Applications URL when deployed online      
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]

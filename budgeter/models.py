@@ -4,17 +4,17 @@ from django.conf import settings
 
 
 class Budget(models.Model):
-    type_choices = (
-        ('1m', '1 Month'),
-        ('3m', '3 Month'),
-        ('6m', '6 Month'),
-        ('1y', '1 Year')
-    )
+    # type_choices = (
+    #     ('1m', '1 Month'),
+    #     ('3m', '3 Month'),
+    #     ('6m', '6 Month'),
+    #     ('1y', '1 Year')
+    # )
     title = models.CharField(max_length=100, default='no title')
-    date_length = models.CharField(max_length=2, choices=type_choices)
+    date_length = models.CharField(max_length=100, default='1 month')
     budget_for = models.CharField(max_length=100, default='Misc.')
     income = models.IntegerField(default=0, blank=True, editable=True)
-    total = models.IntegerField(blank=True, editable=True)
+    # total = models.IntegerField(blank=True, editable=True)
     # created_by = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, on_delete=models.CASCADE, related_name='created_by')
     def __str__(self):
         return self.title

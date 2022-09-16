@@ -17,15 +17,15 @@ class ExpensesSerializer(serializers.HyperlinkedModelSerializer):
         
 
 class BudgetSerializer(serializers.HyperlinkedModelSerializer):
-    expenses = serializers.HyperlinkedRelatedField(
-        view_name ='expense_detail',
-        many = True, 
-        read_only = True
-    )
-    # expenses = ExpensesSerializer(many =True, allow_null = True, read_only=True)
+    # expenses = serializers.HyperlinkedRelatedField(
+    #     view_name ='expense_detail',
+    #     many = True, 
+    #     read_only = True
+    # )
+    expenses = ExpensesSerializer(many =True, allow_null = True, read_only=True)
     class Meta: 
         model = Budget
-        fields =('id', 'title', 'date_length', 'budget_for', 'income', 'total', 'expenses')
+        fields =('id', 'title', 'date_length', 'budget_for', 'income', 'expenses' )
         depth = 1
         
 
