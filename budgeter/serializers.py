@@ -10,6 +10,7 @@ class ExpensesSerializer(serializers.HyperlinkedModelSerializer):
     budget = serializers.HyperlinkedRelatedField(
         view_name = 'budget_detail',
         read_only = True
+        
     )
     class Meta:
         model = Expenses

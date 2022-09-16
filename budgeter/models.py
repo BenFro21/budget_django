@@ -40,5 +40,5 @@ class Expenses(models.Model):
     type_bill = models.CharField(max_length=4, choices=type_choices)
     
     def __str__(self):
-       return f"{self.title} part of {self.budget.title} budget" 
+       return f"{self.title} part of " 
        
