@@ -1,1 +1,1 @@
-web: gunicorn {name of your project folder}.wsgi
+web: gunicorn {budgeter_django}.wsgi
