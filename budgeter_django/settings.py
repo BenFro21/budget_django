@@ -95,8 +95,8 @@ WSGI_APPLICATION = 'budgeter_django.wsgi.application'
 #     }
 # }
 
-DATABASES = {}
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+DATABASES = {'default':{ 'ENGINE': 'django.db.backends.postgresql',}}
+DATABASES['default'] = dj_database_url.config(default='postgres://budgeteruser:budgeter@localhost:5432/budgeter', conn_max_age=600)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
