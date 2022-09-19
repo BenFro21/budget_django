@@ -81,8 +81,17 @@ WSGI_APPLICATION = 'budgeter_django.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+# #   'default': dj_database_url.config(conn_max_age=600)
+# }
 DATABASES = {
-  'default': dj_database_url.config(conn_max_age=600)
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'budgeter',
+        # 'USER': 'budgeteruser',
+        # 'PASSWORD': 'budgeter',
+        
+    }
 }
 
 
@@ -139,7 +148,7 @@ REST_FRAMEWORK = {
     ],
 }
 ALLOWED_HOSTS = ['*']
-CORS_ALLOWED_ORIGINS = ["https://budgetapp21.netlify.app","http://localhost:3000"] # Use whichever port your React Frontend is running on
+CORS_ALLOWED_ORIGINS = ["https://budgetapp21.netlify.app",] # Use whichever port your React Frontend is running on
 # This option will also need to be configured to include your Applications URL when deployed online      
 CORS_ALLOW_METHODS = [
     "DELETE",
