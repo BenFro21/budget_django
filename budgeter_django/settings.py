@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-wqu4mz5l@5a2nm7es^!)%vmgs$-h8teteb0dj9eavm_3hz1z3i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+
 
 
 # Application definition
@@ -142,7 +142,7 @@ REST_FRAMEWORK = {
     ],
 }
 
-CORS_ALLOWED_ORIGINS = ["https://budgetapp21.netlify.app/","http://localhost:3000", "https://budgeter21.netlify.app"] # Use whichever port your React Frontend is running on
+CORS_ALLOWED_ORIGINS = ["https://budgetapp21.netlify.app/","http://localhost:3000/", "https://budgeter21.netlify.app"] # Use whichever port your React Frontend is running on
 # This option will also need to be configured to include your Applications URL when deployed online      
 CORS_ALLOW_METHODS = [
     "DELETE",
