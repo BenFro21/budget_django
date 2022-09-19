@@ -142,7 +142,7 @@ REST_FRAMEWORK = {
     ],
 }
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:3000","https://budgeter21.netlify.app/"], # Use whichever port your React Frontend is running on
+CORS_ALLOWED_ORIGINS = ["http://localhost:3000", "https://budgeter21.netlify.app/"] # Use whichever port your React Frontend is running on
 # This option will also need to be configured to include your Applications URL when deployed online      
 CORS_ALLOW_METHODS = [
     "DELETE",
