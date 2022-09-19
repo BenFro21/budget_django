@@ -22,7 +22,7 @@ class RegisterView(APIView):
 
 
 class LoginView(APIView):
-
+    permission_classes = []
     def get_user(self, email):
         try:
             return User.objects.get(email=email)
