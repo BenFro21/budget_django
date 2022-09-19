@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import django_on_heroku
+import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-wqu4mz5l@5a2nm7es^!)%vmgs$-h8teteb0dj9eavm_3hz1z3i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True if os.environ['MODE'] == 'dev' else False
 
 
 
@@ -45,6 +47,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -79,13 +82,7 @@ WSGI_APPLICATION = 'budgeter_django.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'budgeter',
-        'USER': 'budgeteruser',
-        'PASSWORD': 'budgeter',
-        
-    }
+  'default': dj_database_url.config(conn_max_age=600)
 }
 
 
@@ -141,7 +138,7 @@ REST_FRAMEWORK = {
         # change api to name of app in line above
     ],
 }
-
+ALLOWED_HOSTS = ['*']
 CORS_ALLOWED_ORIGINS = ["https://budgetapp21.netlify.app","http://localhost:3000"] # Use whichever port your React Frontend is running on
 # This option will also need to be configured to include your Applications URL when deployed online      
 CORS_ALLOW_METHODS = [
