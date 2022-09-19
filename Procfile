@@ -1,1 +1,1 @@
-web: gunicorn {budgeter_django}.wsgi
+web: gunicorn budgeter_django.wsgi
