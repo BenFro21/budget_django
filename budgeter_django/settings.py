@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-import django_on_heroku
+import django_heroku
 import os
 import dj_database_url
 
@@ -95,10 +95,8 @@ WSGI_APPLICATION = 'budgeter_django.wsgi.application'
 #     }
 # }
 
-# default='postgres://budgeteruser:budgeter@localhost:5432/budgeter', 
-
 DATABASES = {'default':{ 'ENGINE': 'django.db.backends.postgresql',}}
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+DATABASES['default'] = dj_database_url.config(default='postgres://budgeteruser:budgeter@localhost:5432/budgeter', conn_max_age=600)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -164,4 +162,4 @@ CORS_ALLOW_METHODS = [
     "PUT",
 ]
 
-django_on_heroku.settings(locals())
+django_heroku.settings(locals())
