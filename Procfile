@@ -1,1 +1,1 @@
-WSGI_APPLICATION = 'budgeter_django.wsgi.application'
+web: gunicorn budgeter_django.wsgi
